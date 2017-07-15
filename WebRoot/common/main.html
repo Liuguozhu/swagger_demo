@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<!--[if IE 7 ]>		 <html class="no-js ie ie7 lte7 lte8 lte9" lang="zh-cmn-Hans-CN"> <![endif]-->
+<!--[if IE 8 ]>		 <html class="no-js ie ie8 lte8 lte9" lang="zh-cmn-Hans-CN"> <![endif]-->
+<!--[if IE 9 ]>		 <html class="no-js ie ie9 lte9>" lang="zh-cmn-Hans-CN"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<!--<html class="no-js" lang="zh-cmn-Hans-CN">   -->
+<!--<![endif]-->
+<html lang="zh-cmn-Hans-CN">
+<head>
+    <meta charset="utf-8"/>
+	<meta name="renderer" content="webkit"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title></title>
+    <script>
+        var contextPath = "/static";
+        var CKEDITOR_BASEPATH = contextPath+'/';
+	</script>
+	<!-- 
+	<link rel="shortcut icon" href="/static/images/gamedo_ico.png">
+	 -->
+	<link href="/static/bootstrap-3.3.5/css/bootstrap.css" rel="stylesheet" />
+	<link href="/static/css/uiengine.ui.css" rel="stylesheet" />
+	<link href="/static/css/jquery-labelauty.css" rel="stylesheet" />
+	<link href="/static/datetimepicker/css/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+	<script src="/static/js/jquery1.11.3.js"></script>
+	<script src="/static/bootstrap-3.3.5/js/bootstrap.js"></script>
+	<script src="/static/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+	
+	<script src="/static/js/uiengine.uijs"></script>
+	<script src="/static/js/jquery-labelauty.js"></script>
+	
+	<script src="/static/js/highcharts.min.js"></script>
+	<script src="/static/js/common.util.js"></script>
+	<script src="/static/js/json2.js"></script>
+	<script src="/static/sidao/js/sidao.js"></script>
+	<script src="/static/sidao/js/select2.js"></script>
+	<script src="/static/datetimepicker/js/bootstrap-datetimepicker.js"></script>
+	<script src="/static/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+	<script src="/static/js/jquery.form.js"></script>
+	<!--[if IE 8]>
+	<link href="/static/css/peculiar-ie8/css/ie8.css" rel="stylesheet" />	
+	<link href="/static/css/peculiar-ie8/css/font-awesome-ie8.min.css" rel="stylesheet" />	
+	<![endif]-->
+	<!--[if lt IE 8]>
+	<div style="background:#FBE3E4;border:none;position:relative;z-index:9990;color:#8A1F11;padding:8px 10px;text-align:center">当前网页&nbsp;<strong>不支持</strong>&nbsp;您正在使用的浏览器.&nbsp;为了您的正常访问,&nbsp;请&nbsp;<a href="http://uisource.com/wp-content/themes/duomeng/ie.htm">升级您的浏览器</a>.</div><![endif]-->
+</head>
+<body class="smart-style-4" onload="_load()">
+<header id="header">
+
+    <div id="logo-group">
+        <span id="logo1"><font size="5">内容管理平台</font><img src="/static/images/logo-pale.png"> </span>
+	</div>
+
+    <div class="pull-right" >
+        <div id="hide-menu" class="btn-header pull-right">
+            <span> <a href="javascript:void(0);" title="折叠菜单"><i class="fa fa-reorder"></i></a> </span>
+        </div>
+        <div id="logout" class="btn-header transparent pull-right">
+            <span> <a href="../users/logout" title="退出"
+                      data-logout-msg="您可以在退出后关闭浏览器进一步提高安全性">
+					  <i class="fa fa-sign-out"></i></a> </span>
+        </div>
+      	<ul id="mobile-profile-img" class="header-dropdown-list hidden-xs padding-5">
+			<li class="">
+				<a href="#" class="dropdown-toggle no-margin userdropdown" data-toggle="dropdown"> 
+					<img src="/static/images/sunny.png" alt="会员" class="online" />  
+				</a>
+				<ul class="dropdown-menu pull-right">
+					<li>
+						<a href="javascript:void(0);" class="padding-top-0 padding-bottom-0" data-action="launchFullscreen"><i class="fa fa-arrows-alt"></i> 全屏</a>
+					</li>
+					<li class="divider"></li>
+					<li>
+						<a href="login.html" class="padding-top-5 padding-bottom-5" data-action="userLogout"><i class="fa fa-sign-out fa-lg"></i> 注销</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+        <div id="fullscreen" class="btn-header transparent pull-right">
+            <span> <a href="javascript:void(0);" onclick="launchFullscreen(document.documentElement);"
+                      title="全屏"><i class="fa fa-fullscreen"></i></a> </span>
+        </div>
+    </div>
+</header>
+<aside id="left-panel">
+    <div class="login-info">
+		<span>
+			<a href="javascript:void(0);" id="show-shortcut">
+                      <img src="/static/images/sunny.png" alt="me" class="online"/>
+				<span>
+					我是${cuser.USER_NAME}
+				</span>
+                  </a>
+		</span>
+    </div>
+	<nav>
+		<ul>
+			<li class="">
+			    <a  href="/videoinfo" title="视频管理">
+			    	<i class="fa fa-lg fa-fw fa-film"></i> 
+			    	<span class="menu-item-parent">视频管理</span>
+			    </a>
+			    <ul>
+					<li class="">
+					    <a href="/videoinfo" title="视频管理">
+			    			<i class="fa fa-lg fa-fw  fa-video-camera"></i> 
+			    			<span class="menu-item-parent">视频管理</span>
+			    		</a>
+					</li>
+					<li class="">
+					    <a href="/videoareainfo" title="分类管理">
+			    			<i class="fa fa-lg fa-fw fa-bookmark"></i> 
+			    			<span class="menu-item-parent">分类管理</span>
+			    		</a>
+			    		<ul>
+			    			<li class="">
+					   			<a href="/videoareainfo" title="地区">
+			    					<i class="fa fa-lg fa-fw fa-eraser"></i> 
+			    					<span class="menu-item-parent">地区管理</span>
+			    				</a>
+							</li>
+			    			<li class="#">
+					   			<a href="/videotypeinfo" title="类型管理">
+			    					<i class="fa fa-lg fa-fw fa-book"></i> 
+			    					<span class="menu-item-parent">类型管理</span>
+			    				</a>
+							</li>
+			    			<li class="#">
+					   			<a href="/videoclassifyinfo" title="分类管理">
+			    					<i class="fa fa-lg fa-fw fa-bookmark"></i> 
+			    					<span class="menu-item-parent">分类管理</span>
+			    				</a>
+							</li>
+			    		</ul>
+					</li>
+					<li class="">
+					    <a href="/videochannelinfo" title="频道管理">
+			    			<i class="fa fa-lg fa-fw fa-star"></i> 
+			    			<span class="menu-item-parent">频道管理</span>
+			    		</a>
+					</li>
+					<li class="">
+					    <a href="/featuredfirst" title="推荐位管理">
+			    			<i class="fa fa-lg fa-fw fa-circle"></i> 
+			    			<span class="menu-item-parent">推荐位管理</span>
+			    		</a>
+					</li>
+					<li class="">
+					    <a href="/videosubjectinfo" title="专题管理">
+			    			<i class="fa fa-lg fa-fw fa-tags"></i> 
+			    			<span class="menu-item-parent">专题管理</span>
+			    		</a>
+					</li>
+					<li class="">
+					    <a href="/adinfolist" title="广告管理">
+				    		<i class="fa fa-lg fa-fw fa-gamepad"></i>
+							<span class="menu-item-parent">广告管理</span>
+						</a> 
+					</li>
+					<li class="">
+					    <a href="/ranklist" title="排行榜">
+				    		<i class="fa fa-sort-amount-asc"></i>
+							<span class="menu-item-parent">排行榜</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			 <li class="">
+			    <a href="/player" title="系统管理">
+			    	<i class="glyphicon glyphicon-cog"></i> 
+			    	<span class="menu-item-parent">系统管理</span>
+			    </a>
+			    <ul>
+					<li class="">
+					    <a href="/player" title="会员管理">
+			    			<i class="fa fa-lg fa-fw fa-user"></i> 
+			    			<span class="menu-item-parent">会员管理</span>
+			    		</a>
+					</li>
+					<li class="">
+					    <a href="/users" title="管理人员">
+			    			<i class="fa fa-lg fa-fw fa-star"></i> 
+			    			<span class="menu-item-parent">管理人员</span>
+			    		</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+    <span class="minifyme"> <i class="fa fa-arrow-circle-left hit"></i> </span>
+</aside>
+<div id="main" role="main">
+    <div id="ribbon">
+        <span class="ribbon-button-alignment"> 
+        	<span id="refresh" class="btn btn-ribbon" data-title="refresh"
+                      rel="tooltip" data-placement="bottom"
+                      data-original-title="<i class='text-warning fa fa-warning'></i> 警告！这将重置您的小组件位置及颜色设置。"
+                      data-html="true"
+                      data-reset-msg="您确认将重置你所有的小组件的位置并清理本地存储么？">
+                <i class="fa fa-refresh"></i>
+            </span> 
+        </span>
+        <ol class="breadcrumb">
+        </ol>
+    </div>
+    <div id="content">
+	</div>
+</div>
+<div class="page-footer">
+	<div class="row">
+		<div class="col-xs-12 col-sm-6">
+			<span class="txt-color-white"> © 2014-2015</span>
+		</div>
+		<div class="col-xs-6 col-sm-6 text-right hidden-xs">
+			<div class="txt-color-white inline-block">
+				<i class="txt-color-blueLight hidden-mobile">上次登录时间：<i class="fa fa-clock-o"></i> <strong>${cuser.LATER_TIME?string("yyyy-MM-dd HH:mm:ss")}  &nbsp;</strong> </i>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+<script src="/static/js/app.min.js"></script>
+<script>
+function loadright(url){
+	$.ajax({
+        type: "post",
+        url :url,
+        success: function(r){
+        	
+        	if(r){
+        		$('#loading').hide();
+        	}
+        	
+            $('#content').html(r);
+        }
+    });
+}
+function login() {
+    var d = $("input[name='user_name']").val();
+    var a = $("input[name='password']").val();
+    var c = $("input[name='randomCode']").val();
+    if (d == null || d == "") {
+        alert("用户名不能为空！");
+        return;
+    }
+    if (a == null || a == "") {
+       alert("密码不能为空！");
+        return;
+    }
+    if (c == null || c == "") {
+        alert("验证码不能为空！");
+        return;
+     }
+    document.forms[0].submit();
+}
+</script>
+</html>

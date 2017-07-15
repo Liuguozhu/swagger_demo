@@ -1,0 +1,59 @@
+<#macro paginate currentPage totalPage actionUrl loadMethod urlParas="" >
+<div class="paging" >
+<ul class="pagination">
+	<#if (totalPage <= 0) || (currentPage > totalPage)><#return></#if>
+	<#local startPage = currentPage - 5>
+	<#if (startPage < 1)><#local startPage = 1></#if>
+	
+	<#local endPage = currentPage + 5>
+	<#if (endPage > totalPage)><#local endPage = totalPage></#if>
+	
+			<#if (currentPage < 10)>
+				<#local startPage = 1>
+			</#if>
+			<#if ((totalPage - currentPage) <10)>
+				<#local endPage = totalPage>
+			</#if>
+			<#if (currentPage == 1)>
+				<li><a class="current" href="javascript:void(0)" tabindex="0" id="grid_first">第一页</a></li>
+			<#else>
+				<li><a href="javascript:${loadMethod}('${actionUrl}#{1}${urlParas!}')"  tabindex="0" id="grid_first">第一页</a>
+			</#if>
+			<#if (currentPage == 1)>
+				<li><a class="current" href="javascript:void(0)" tabindex="0" id="grid_first">上一页</a></li>
+			<#else>
+				<li><a href="javascript:${loadMethod}('${actionUrl}#{currentPage - 1}${urlParas!}')"  tabindex="0" id="grid_first">上一页</a></li>
+			</#if>
+			
+			<#if (currentPage > 10)>
+				<li><a href="javascript:${loadMethod}('${actionUrl}#{1}${urlParas!}')">#{1}</a></li>
+				<li><a href="javascript:${loadMethod}('${actionUrl}#{2}${urlParas!}')">#{2}</a></li>
+				<li><a class="gap">…</a></li>
+			</#if>
+			
+			<#list startPage..endPage as i>
+				<#if currentPage == i>
+					<li><a class="current">#{i}</a></li>
+				<#else>
+					<li><a href="javascript:${loadMethod}('${actionUrl}#{i}${urlParas!}')">#{i}</a></li>
+				</#if>
+			</#list>
+			
+			<#if ((totalPage - currentPage) >= 10)>
+				<li><a class="gap">…</a></li>
+				<li><a href="javascript:${loadMethod}('${actionUrl}#{totalPage - 1}${urlParas!}')">#{totalPage - 1}</a></li>
+				<li><a href="javascript:${loadMethod}('${actionUrl}#{totalPage}${urlParas!}')">#{totalPage}</a></li>
+			</#if>
+			<#if (currentPage == totalPage)>
+				<li><a class="current" href="javascript:void(0)" tabindex="0" id="grid_first">下一页</a></li>
+			<#else>
+				<li><a  href="javascript:${loadMethod}('${actionUrl}#{currentPage + 1}${urlParas!}')" tabindex="0" id="grid_first">下一页</a></li>
+			</#if>
+			<#if (currentPage == totalPage)>
+				<li><a class="current" href="javascript:void(0)" tabindex="0" id="grid_first">最后一页</a></li>
+			<#else>
+				<li><a  href="javascript:${loadMethod}('${actionUrl}#{totalPage}${urlParas!}')" tabindex="0" id="grid_first">最后一页</a></li>
+			</#if>
+			</ul>
+	</div>
+</#macro>

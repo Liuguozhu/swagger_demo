@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>内容管理平台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content=""/>
+   <link rel="shortcut icon" href="../static/images/gamedo_ico.png">
+	<link href="../static/css/uiengine.ui.css" rel="stylesheet" />
+	<link href="../static/css/jquery-labelauty.css" rel="stylesheet" />
+	<!--
+	 <script src="../static/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+	 <script src="../static/bootstrap-3.3.5/js/bootstrap.js"></script>
+	-->
+	<script src="../static/js/jquery2.0.js"></script>
+	
+	<!--[if IE 8]>
+	<link href="../static/css/peculiar-ie8/css/ie8.css" rel="stylesheet" />	
+	<link href="../static/css/peculiar-ie8/css/font-awesome-ie8.min.css" rel="stylesheet" />	
+	<![endif]-->
+	<!--[if lt IE 8]>
+	<div style="background:#FBE3E4;border:none;position:relative;z-index:9990;color:#8A1F11;padding:8px 10px;text-align:center">当前网页&nbsp;<strong>不支持</strong>&nbsp;您正在使用的浏览器.&nbsp;为了您的正常访问,&nbsp;请&nbsp;<a href="http://uisource.com/wp-content/themes/duomeng/ie.htm">升级您的浏览器</a>.</div><![endif]-->
+</head>
+
+<body class="smart-style-4">
+	<header id="header">
+		<div id="logo-group" >
+			<!-- PLACE YOUR LOGO HERE -->
+			<span id="logo1"><font size="6">内容管理平台</font><img src="../static/images/logo-pale.png">
+			</span>
+		</div>
+	</header>
+	<div style="width:100%;padding-top:10%;" align="center" >
+		<div class="well no-padding" style="width:800px;" align="left">
+			<form action="../users/login" class="smart-form smart-form client-form"
+				id="login-form" method="post" novalidate="novalidate">
+				<header>登录 </header>
+				<fieldset>
+					<section>
+						<label class="label">用户名</label> <label class="input"> <i
+							class="icon-append fa fa-user"></i> <input name="user_name"
+							placeholder="邮件/手机/用户名" type="text"> <b
+							class="tooltip tooltip-top-right"><i
+								class="fa fa-user txt-color-teal"></i>请输入您的用户名</b> </label>
+					</section>
+					<section>
+						<label class="label">密码</label> <label class="input"> <i
+							class="icon-append fa fa-lock"></i> <input id="password"
+							name="password" placeholder="请输入密码" type="password"> <b
+							class="tooltip tooltip-top-right"><i
+								class="fa fa-lock txt-color-teal"></i>请输入您的密码</b> </label>
+					</section>
+					<section>
+						<label class="label">验证码</label> <label class="input"> <input style="width:590px;float: left;"
+							name="randomCode" placeholder="验证码" type="text"><b
+							class="tooltip tooltip-top-right" style="padding-right: 12px;"><i
+								class="fa fa- txt-color-teal"></i>请输入右侧的验证码</b>
+							<img src="/random_code" style="padding-left: 12px;height: 32px;"/></label>
+					</section>
+				</fieldset>
+				<footer>
+					<button id="jquery-submit" type="button" class="btn btn-primary " onclick="login()">登录</button>
+				</footer>
+			</form>
+		</div>
+	</div>
+	<div class="page-footer">
+		<div class="row">
+			<div class="col-xs-12 col-sm-6">
+				<span class="txt-color-white">© 2014-2015</span>
+			</div>
+		</div>
+		<!-- end row -->
+	</div>
+	
+<script>
+function login() {
+	var d = $("input[name='user_name']").val();
+	var a = $("input[name='password']").val();
+	var c = $("input[name='randomCode']").val();
+	if (d == null || d == "") {
+		alert("用户名不能为空！")
+		return;
+	}
+	if (a == null || a == "") {
+		alert("密码不能为空！")
+		return;
+	}
+	if (c == null || c == "") {
+		alert("验证码不能为空！")
+		return;
+	}
+	document.forms[0].submit();
+}
+$(function(){
+$('#option-tool-content-load').hide();
+$('#option-tool-content').show();
+});
+
+ $(document).keydown(function (e) {
+        if (e.keyCode == '13') {
+            if(!$('#dialog').length){
+                $('#jquery-submit').click();
+            }else{
+                $('#dialog').find('.save').click();
+            }
+        }
+    })
+
+
+</script>
+<script src="../static/js/jquery1.11.3.js"></script>
+	<script src="../static/js/uiengine.uijs"></script>
+	<script src="../static/js/jquery-labelauty.js"></script>
+	<script src="../static/js/highcharts.min.js"></script>
+	<script src="../static/js/common.util.js"></script>
+	<script src="../static/js/json2.js"></script>
+	<script src="../static/js/app.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+.svn
+.idea
+classes/
+target/
+.class
+.metadata/
