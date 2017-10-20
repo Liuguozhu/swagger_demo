@@ -1,6 +1,33 @@
-#swagger_demo
-jfinal框架和swagger的结合demo，
+# swagger_demo
+
+## This project is just a demo combination of jfinal framework and Swagger framework.
+
+There's a lot of stuff that doesn't work because it's copied from the old project.You can clean it by yourself.
+
+Requires more than JDK1.6
+
+resources for the configuration file directory, database account password are the encrypted string, encryption rules see the src/org.sidao.jdbc.CipherUtils.java
+
+There is no need to configure the database,annotate the database in the src/org.sidao.jfinal.JfinalConfig.java and comment out or delete the relevant code ( The default is commented out and can be started directly ) .
+
+The tools directory is an automatic generation of beans and controlles tools and templates for self-written jfinal frameworks.You can change according to actual requirements.
+
+You can start the project through test/RunProject.java,
+Direct main method starts.Startup parameters can be modified by themselves.See the jfinal source code or the official document for the parameter significance.
+
+After start-up visit http://localhost:8080/swagger/index.html to view sample to swagger.
+
+The related path configuration for swagger is shown in web.xml.
+
+The sample code for the swagger interface is shown in the SRC/swagger directory.
+
+For other USES of the swagger annotation, see https://swagger.io/ or other documents.
+
+
+## jfinal框架和swagger的结合demo
+
 有很多没用的东西是因为从旧项目中拷贝过来没有清理。可自行清理。
+
 环境要求JDK1.6以上。
 
 resources为配置文件目录，数据库的账号密码为加密后的字符串，加密规则及示例见src/org.sidao.jdbc.CipherUtils.java。
